@@ -1,0 +1,92 @@
+/* Estilos para o container do relatório */
+#reportContainer {
+    background-color: var(--secondary-bg-color);
+    padding: var(--default-padding);
+    border-radius: var(--primary-border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 800px; /* Aumentando a largura para acomodar a tabela */
+    margin: auto;
+    text-align: center;
+}
+
+/* Estilos para a tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: left;
+}
+
+th, td {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;  /* centraliza o texto horizontalmente */
+    vertical-align: middle;  /* centraliza o conteúdo verticalmente */
+}
+
+th {
+    background-color: var(--primary-bg-color);
+    color: #5995d2;
+}
+
+tr:hover {
+    background-color: var(--highlight-info); /* laranja/amarelo ao passar o mouse */
+}
+
+/* Arredondar apenas as bordas superiores dos elementos <th> do <thead> */
+thead th:first-child {
+    border-top-left-radius: var(--primary-border-radius);
+    border-bottom-left-radius: 0; /* Removido o arredondamento da borda inferior esquerda */
+}
+
+thead th:last-child {
+    border-top-right-radius: var(--primary-border-radius);
+    border-bottom-right-radius: 0; /* Removido o arredondamento da borda inferior direita */
+}
+
+/* Estilos para os botões no final do relatório */
+#reportActions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo geral para os botões */
+.report-button {
+    padding: 10px 20px;
+    border-radius: var(--primary-border-radius);
+    border: none;
+    cursor: pointer;
+    font-size: var(--medium-font-size); 
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 10px;
+}
+
+.report-button:hover {
+    transform: scale(1.05);
+}
+
+.report-button:active {
+    transform: scale(0.95);
+}
+
+/* Estilo para o botão 'Exportar Relatório' */
+.export-button {
+    background-color: var(--action-positive); /* Utilizamos o verde para indicar uma ação positiva */
+    color: var(--primary-text-color);
+}
+
+.export-button:hover {
+    background-color: #388e3c; /* Um tom de verde um pouco mais escuro no hover */
+}
+
+/* Estilo para o botão 'Voltar ao Painel' */
+.back-button {
+    background-color: #5254b1; /* Cinza escuro */
+    color: var(--primary-text-color); 
+}
+
+.back-button:hover {
+    background-color: #41428c; /* Cinza um pouco mais claro no hover */
+}
