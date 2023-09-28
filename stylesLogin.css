@@ -1,0 +1,110 @@
+/* --- VARIÁVEIS DO PROJETO INICIAL --- */
+
+:root {
+    --primary-bg-color: #B3E0FF;
+    --primary-text-color: #FFFFFF;
+    --secondary-bg-color: #6BB5FF;
+    --secondary-text-color: #FFFFFF;
+    --action-positive: #4caf50;
+    --action-negative: #f44336;
+    --highlight-info: #FFD166;
+    --primary-font: 'Lato', sans-serif;
+    --secondary-font: 'Montserrat', sans-serif;
+    --box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    --primary-border-radius: 10px;
+    --primary-font-size: 1rem;
+    --large-font-size: 2rem;
+    --medium-font-size: 20px;
+    --default-padding: 30px 40px;
+    --large-padding: 0.8rem 3.5rem;
+}
+
+body {
+    font-family: var(--primary-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    font-size: var(--primary-font-size);
+}
+
+/* ---- LOGIN INTERFACE STYLES ---- */
+
+#loginContainer {
+    background-color: var(--secondary-bg-color);
+    padding: var(--default-padding);
+    border-radius: var(--primary-border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+#loginContainer h2 {
+    font-family: var(--secondary-font);
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--secondary-text-color);
+}
+
+#loginContainer img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+}
+
+.loginInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: var(--primary-border-radius);
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    font-size: var(--primary-font-size);
+    outline: none;
+}
+
+.loginButton {
+    padding: var(--large-padding);
+    font-size: 18px;
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-text-color);
+    border: 2px solid var(--highlight-info);
+    border-radius: var(--primary-border-radius);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.loginButton:hover {
+    background-color: var(--highlight-info);
+    color: var(--secondary-text-color);
+}
+
+.loginButton:active {
+    transform: scale(0.95);
+}
+
+#loginContainer input[type="text"]:not(:placeholder-shown),
+#loginContainer input[type="password"]:not(:placeholder-shown) {
+    color: #333333; /* Um tom de cinza escuro */
+}
+
+/* Estilo para os inputs quando estão focados */
+#loginContainer input[type="text"]:focus,
+#loginContainer input[type="password"]:focus {
+    border-color: var(--primary-bg-color); /* Usamos o azul claro definido anteriormente */
+    box-shadow: 0 0 8px var(--primary-bg-color); /* Sombra com o mesmo azul claro */
+    background-color: var(--primary-bg-color); /* Fundo azul clarinho */
+    outline: none; /* Remove a outline padrão do navegador */
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s; /* Suaviza as transições */
+}
+
+/* Transição padrão para os inputs (para quando eles perdem o foco) */
+#loginContainer input[type="text"],
+#loginContainer input[type="password"] {
+    background-color: #ffffff;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}

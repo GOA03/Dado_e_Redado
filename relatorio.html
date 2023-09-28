@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório dos Resultados dos Alunos</title>
+    <link rel="stylesheet" href="stylesLogin.css">
+    <link rel="stylesheet" href="stylesRelatorio.css">
+</head>
+<body>
+    <div id="reportContainer">
+        <h1>Relatório dos Resultados dos Alunos</h1>
+        
+        <h2>Lista de Resultados:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome do Aluno</th>
+                    <th>Pontuação</th>
+                    <th>Erros Cometidos</th>
+                    <th>Movimentos Jogo Memória</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Exemplo de dados dos alunos -->
+                <tr>
+                    <td>João Silva</td>
+                    <td>85</td>
+                    <td>2</td>
+                    <td>15</td>
+                    <td>24/09/2023</td>
+                </tr>
+                <tr>
+                    <td>Maria Oliveira</td>
+                    <td>90</td>
+                    <td>1</td>
+                    <td>12</td>
+                    <td>24/09/2023</td>
+                </tr>
+                <!-- E assim por diante para outros alunos... -->
+            </tbody>
+        </table>
+
+        <!-- Botões para outras funções que o professor pode precisar -->
+        <div id="reportActions">
+            <button class="report-button back-button">Voltar ao Painel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

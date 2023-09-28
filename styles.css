@@ -1,0 +1,377 @@
+:root {
+    --primary-bg-color: #B3E0FF; /* azul claro */
+    --primary-text-color: #FFFFFF; /* branco */
+    --secondary-bg-color: #6BB5FF; /* azul um pouco mais escuro */
+    --secondary-text-color: #FFFFFF; /* branco */
+    --action-positive: #4caf50; /* verde */
+    --action-negative: #f44336; /* vermelho */
+    --highlight-info: #FFD166; /* laranja/amarelo */
+    --primary-font: 'Lato', sans-serif;
+    --secondary-font: 'Montserrat', sans-serif;
+    --box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    --primary-border-radius: 10px;
+    --primary-font-size: 1rem;
+    --large-font-size: 2rem;
+    --medium-font-size: 20px;
+    --default-padding: 30px 40px;
+    --large-padding: 0.8rem 3.5rem;
+}
+
+body {
+    font-family: var(--primary-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    font-size: var(--primary-font-size);
+}
+
+#contenedor-jogo {
+    background-color: var(--secondary-bg-color);
+    padding: var(--default-padding);
+    border-radius: var(--primary-border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+    margin: auto;
+}
+
+h1, h2 {
+    font-family: var(--secondary-font);
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--secondary-text-color);
+}
+
+h1 {
+    font-size: var(--large-font-size);
+}
+
+h2 {
+    font-size: var(--medium-font-size);
+}
+
+#contenedor-dados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#contenedor-dados img {
+    width: 7rem;
+    height: 7rem;
+    margin: 0.8rem;
+}
+
+#opcoes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+button {
+    padding: var(--large-padding);
+    font-size: 18px;
+    background-color: #444444; /* Cor de fundo mais escura para melhor contraste */
+    color: #ffffff; /* Cor de texto branca */
+    border: 2px solid #666666; /* Borda um pouco mais clara que o fundo */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* sombra do texto para destaque */
+}
+
+button:hover {
+    background-color: rgb(145, 145, 145); /* Um tom ligeiramente mais claro no hover para indicar interatividade */
+    color: #ffffff; /* Manter a cor do texto como branca */
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button.selected {
+    background-color: #4caf50; /* Usando uma cor de destaque */
+    border-color: var(--primary-bg-color);
+    color: #ffffff; /* Manter a cor do texto como branca */
+}
+
+#vidas {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 32px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    display: flex;
+    gap: 10px;
+}
+
+#progressoContainer {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    height: 25px;
+    background-color: #e0e0e0;
+    border-radius: var(--primary-border-radius);
+    overflow: hidden;
+}
+
+#barraProgresso {
+    height: 100%;
+    width: 0;
+    background-color: var(--action-positive);
+    transition: width 0.5s ease;
+}
+
+#progressoTexto {
+    position: absolute;
+    font-family: var(--primary-font);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-weight: bold;
+}
+
+#feedback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: var(--primary-border-radius);
+    font-size: 24px;
+    font-weight: bold;
+    display: none;
+    animation: fadeOut 1.5s forwards;
+}
+
+#feedback.acerto {
+    background-color: var(--action-positive);
+    color: white;
+}
+
+#feedback.erro {
+    background-color: var(--action-negative);
+    color: white;
+}
+
+.acerto, .erro {
+    border-radius: 4px;
+    padding: 10px;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    75% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+#displayPontos {
+    font-size: 24px;
+    color: var(--primary-text-color);
+    font-weight: bold;
+    background-color: var(--highlight-info);
+    padding: 10px;
+    border-radius: var(--primary-border-radius);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+#displayPontos.pontuacaoGanha {
+    transform: scale(1.2);
+}
+
+#mensagemGameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--action-negative);
+    color: white;
+    padding: 60px;
+    font-size: 50px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+    text-align: center;
+    border-radius: var(--primary-border-radius);
+    cursor: pointer;
+}
+
+#pergunta.somar {
+    color: blue; /* Azul para soma */
+    font-weight: bold;
+}
+
+#pergunta.subtrair {
+    color: red; /* Vermelho para subtração */
+    font-weight: bold;
+}
+
+p {
+    font-size: var(--primary-font-size);
+    margin: 0.5em 0;
+}
+
+#fontControls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #444444; /* Alterando o fundo para uma cor mais escura */
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+}
+
+.font-icon {
+    color: #ffffff; /* Mudança para cor branca para melhor contraste */
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#fontSizeSlider {
+    width: 150px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+#currentSize {
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--primary-text-color);
+}
+
+#audioControl .audio-icon {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#audioControl button {
+    font-family: var(--primary-font);
+    transition: font-size 0.3s, padding 0.3s;
+}
+
+#toggleSound {
+    background-color: #444444; /* Cor de fundo mais escura para contraste */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #ffffff; /* Definindo a cor do ícone para branco */
+}
+
+#toggleSound:hover {
+    background-color: #646464; /* Um tom ligeiramente mais claro ao passar o mouse */
+    color: #ffffff;
+}
+
+#toggleSound:active {
+    transform: scale(0.95);
+}
+
+#controlsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#fontControls, #audioControl {
+    display: flex;
+    align-items: center;
+}
+
+#menuDificuldade {
+    background-color: var(--secondary-bg-color);
+    padding: 50px; /* Aumentamos o padding */
+    border-radius: var(--primary-border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 80%; /* Aumentamos a largura máxima */
+    margin: auto;
+    text-align: center;
+}
+
+#menuDificuldade h2 {
+    font-size: 30px; /* Tornamos a fonte do título maior */
+    margin-bottom: 40px; /* Maior espaço entre o título e os botões */
+}
+
+#menuDificuldade button {
+    margin: 20px; /* Mais espaço ao redor dos botões */
+    font-size: 24px; /* Fonte dos botões maior */
+    padding: 15px 40px; /* Padding maior para os botões */
+}
+
+#jogoMemoria {
+    background-color: var(--secondary-bg-color);
+    padding: var(--default-padding);
+    border-radius: var(--primary-border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    display: none;
+}
+
+#reiniciarMemoria {
+    margin-top: 20px; /* Ajuste este valor conforme necessário para obter o espaçamento desejado */
+}
+
+#memoriaCartas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas de igual tamanho */
+    gap: 20px; /* Espaçamento entre as cartas */
+    justify-content: center; /* Centraliza as cartas horizontalmente */
+    align-items: center; /* Centraliza as cartas verticalmente */
+}
+
+.memoriaCarta {
+    width: 140px;
+    height: 150px;
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.memoriaCarta:hover {
+    transform: scale(1.1);
+}
+
+.memoriaCarta img {
+    width: 90px;
+    height: 90px;
+    display: none; 
+}
+
+@media (max-width: 600px) {
+    #contenedor-jogo {
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 18px;
+    }
+}
