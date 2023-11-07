@@ -84,6 +84,10 @@ button {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* sombra do texto para destaque */
 }
 
+button.loginButton{
+    padding-top: 10px;
+}
+
 button:hover {
     background-color: rgb(145, 145, 145); /* Um tom ligeiramente mais claro no hover para indicar interatividade */
     color: #ffffff; /* Manter a cor do texto como branca */
