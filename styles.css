@@ -3,7 +3,7 @@
     --primary-text-color: #FFFFFF; /* branco */
     --secondary-bg-color: #6BB5FF; /* azul um pouco mais escuro */
     --secondary-text-color: #FFFFFF; /* branco */
-    --action-positive: #4caf50; /* verde */
+    --action-positive: #4dde51; /* verde */
     --action-negative: #f44336; /* vermelho */
     --highlight-info: #FFD166; /* laranja/amarelo */
     --primary-font: 'Lato', sans-serif;
@@ -84,10 +84,6 @@ button {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* sombra do texto para destaque */
 }
 
-button.loginButton{
-    padding-top: 10px;
-}
-
 button:hover {
     background-color: rgb(145, 145, 145); /* Um tom ligeiramente mais claro no hover para indicar interatividade */
     color: #ffffff; /* Manter a cor do texto como branca */
@@ -151,9 +147,9 @@ button.selected {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
+    padding: 25px;
     border-radius: var(--primary-border-radius);
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
     display: none;
     animation: fadeOut 1.5s forwards;
@@ -181,15 +177,15 @@ button.selected {
 }
 
 #displayPontos {
-    font-size: 24px;
+    font-size: 200%;
     color: var(--primary-text-color);
     font-weight: bold;
-    background-color: var(--highlight-info);
+    background-color: var(--secondary-bg-color);
     padding: 10px;
     border-radius: var(--primary-border-radius);
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
     transition: transform 0.2s;
 }
@@ -232,16 +228,22 @@ p {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #444444; /* Alterando o fundo para uma cor mais escura */
+    background-color: var(--primary-bg-color);
     padding: 5px 10px;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     margin-right: 20px;
 }
 
+label{
+    font-size: 0.9rem;
+    color: #3c3c3c;
+    font-weight: 600;
+}
+
 .font-icon {
-    color: #ffffff; /* Mudança para cor branca para melhor contraste */
-    font-weight: bold;
+    color: #3c3c3c; /* Mudança para cor branca para melhor contraste */
+    font-weight: 800;
     font-size: 18px;
     cursor: pointer;
 }
@@ -273,7 +275,7 @@ p {
 }
 
 #toggleSound {
-    background-color: #444444; /* Cor de fundo mais escura para contraste */
+    background-color: var(--primary-bg-color);
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
@@ -283,7 +285,7 @@ p {
 }
 
 #toggleSound:hover {
-    background-color: #646464; /* Um tom ligeiramente mais claro ao passar o mouse */
+    background-color: #3289e1; /* Um tom ligeiramente mais claro ao passar o mouse */
     color: #ffffff;
 }
 
@@ -300,6 +302,10 @@ p {
 #fontControls, #audioControl {
     display: flex;
     align-items: center;
+}
+
+#fontControls:hover{
+    background-color: #3289e1;
 }
 
 #menuDificuldade {
@@ -368,6 +374,34 @@ p {
     width: 90px;
     height: 90px;
     display: none; 
+}
+
+#progressoMemoriaContainer {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    height: 25px;
+    background-color: #e0e0e0;
+    border-radius: var(--primary-border-radius);
+    overflow: hidden;
+}
+
+#barraProgressoMemoria {
+    height: 100%;
+    width: 0;  /* A largura começa em 0 e aumenta à medida que o progresso ocorre */
+    background-color: var(--action-positive);
+    transition: width 0.5s ease;
+}
+
+#progressoTextoMemoria {
+    position: absolute;
+    font-family: var(--primary-font);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-weight: bold;
 }
 
 @media (max-width: 600px) {

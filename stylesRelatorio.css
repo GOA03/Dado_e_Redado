@@ -1,82 +1,123 @@
-/* Estilos para o container do relatório */
-#reportContainer {
+:root {
+    --primary-bg-color: #ffd900ac;
+    --primary-text-color: #333333;
+    --secondary-bg-color: #ff6347be;
+    --secondary-text-color: #FFFFFF;
+    --action-positive: #32CD32;
+    --action-negative: #FF1493;
+    --highlight-info: #0e0503be;
+    --primary-font: 'Lato', sans-serif;
+    --secondary-font: 'Montserrat', sans-serif;
+    --box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    --primary-border-radius: 10px;
+    --primary-font-size: 1rem;
+    --large-font-size: 2rem;
+    --medium-font-size: 20px;
+    --default-padding: 30px 40px;
+    --large-padding: 0.8rem 3.5rem;
+}
+
+body {
+    font-family: var(--primary-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    font-size: var(--primary-font-size);
+}
+
+.container {
     background-color: var(--secondary-bg-color);
     padding: var(--default-padding);
     border-radius: var(--primary-border-radius);
     box-shadow: var(--box-shadow);
-    max-width: 800px; /* Aumentando a largura para acomodar a tabela */
+    max-width: 600px;
     margin: auto;
-    text-align: center;
 }
 
-/* Estilos para a tabela */
+h1, h2 {
+    font-family: var(--secondary-font);
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--secondary-text-color);
+}
+
+h1 {
+    font-size: var(--large-font-size);
+}
+
+h2 {
+    font-size: var(--medium-font-size);
+}
+
+#reportContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    text-align: left;
+    border-radius: var(--primary-border-radius);
+    overflow: hidden;
 }
 
 th, td {
-    padding: 10px 20px;
-    border-bottom: 1px solid #ccc;
-    text-align: center;  /* centraliza o texto horizontalmente */
-    vertical-align: middle;  /* centraliza o conteúdo verticalmente */
+    padding: 12px;
+    text-align: center;
+    border: 1px solid var(--secondary-text-color);
 }
 
-th {
-    background-color: var(--primary-bg-color);
-    color: #5995d2;
+thead {
+    background-color: var(--secondary-text-color);
+    color: var(--secondary-bg-color);
 }
 
-tr:hover {
-    background-color: var(--highlight-info); /* laranja/amarelo ao passar o mouse */
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
-/* Arredondar apenas as bordas superiores dos elementos <th> do <thead> */
-thead th:first-child {
-    border-top-left-radius: var(--primary-border-radius);
-    border-bottom-left-radius: 0; /* Removido o arredondamento da borda inferior esquerda */
-}
-
-thead th:last-child {
-    border-top-right-radius: var(--primary-border-radius);
-    border-bottom-right-radius: 0; /* Removido o arredondamento da borda inferior direita */
-}
-
-/* Estilos para os botões no final do relatório */
 #reportActions {
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-top: 20px;
 }
 
-/* Estilo geral para os botões */
-.report-button {
-    padding: 10px 20px;
+button {
+    padding: var(--large-padding);
+    font-size: 18px;
+    background-color: var(--highlight-info);
+    color: #ffffff;
+    border: 2px solid var(--secondary-text-color);
     border-radius: var(--primary-border-radius);
-    border: none;
     cursor: pointer;
-    font-size: var(--medium-font-size); 
-    transition: background-color 0.3s, transform 0.2s;
-    margin: 10px;
+    transition: all 0.3s;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.report-button:hover {
-    transform: scale(1.05);
+button:hover {
+    background-color: #444;
 }
 
-.report-button:active {
+button:active {
     transform: scale(0.95);
 }
 
-/* Estilo para o botão 'Voltar ao Painel' */
-.back-button {
-    background-color: #5254b1; /* Cinza escuro */
-    color: var(--primary-text-color); 
+button.selected {
+    background-color: var(--action-positive);
+    border-color: var(--primary-bg-color);
+    color: #ffffff;
 }
 
-.back-button:hover {
-    background-color: #41428c; /* Cinza um pouco mais claro no hover */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 18px;
+    }
 }

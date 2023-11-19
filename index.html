@@ -14,18 +14,17 @@
     
     <!-- Menu de Dificuldade -->
     <div id="menuDificuldade">
-        <h2>Escolha a Dificuldade</h2>
-        <button data-dificuldade="facil">Fácil</button>
-        <button data-dificuldade="normal">Normal</button>
-        <button data-dificuldade="dificil">Difícil</button>
+        <h2>ESCOLHA A DIFICULDADE</h2>
+        <button data-dificuldade="facil">FÁCIL</button>
+        <button data-dificuldade="normal">NORMAL</button>
     </div>
-
+    
     <div id="contenedor-jogo">
 
         <div id="controlsContainer">
             <div id="fontControls">
                 <i class="font-icon">Aa</i>
-                <label for="fontSizeSlider">Tamanho do jogo:</label>
+                <label for="fontSizeSlider">TAMANHO DO JOGO:</label>
                 <input type="range" id="fontSizeSlider" min="0.8" max="1.4" step="0.1" value="1">
                 <span id="currentSize">100%</span>
             </div>
@@ -33,11 +32,9 @@
                 <button id="toggleSound">🔊</button>
             </div>
         </div>
-        
-        <h1>Quiz de Dados</h1>
 
         <!-- Pontuação -->
-        <div id="displayPontos">Pontos: 0</div>
+        <div id="displayPontos">PONTOS: 0</div>
 
         <!-- Vidas -->
         <div id="vidas"></div>
@@ -67,9 +64,13 @@
 
     <!-- Jogo da Memória -->
     <div id="jogoMemoria" style="display: none;">
-        <h2>Jogo da Memória</h2>
+        <h1>JOGO DA MEMÓRIA</h1>
         <div id="memoriaCartas">
             <!-- As cartas serão geradas pelo JavaScript -->
+        </div>
+        <div id="progressoMemoriaContainer">
+            <div id="barraProgressoMemoria"></div>
+            <span id="progressoTextoMemoria">0/3</span>
         </div>
     </div>
 

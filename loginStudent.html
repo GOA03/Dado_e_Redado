@@ -10,13 +10,25 @@
     <title>Login - Jogo de Dados</title>
 </head>
 <body>
+    <audio id="myAudio">
+        <source src="sounds/Ola.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
     <div id="loginContainer">
         <h2>LOGlN</h2>
         <h3>DADO E REDADO</h3>
         <p>COLOQUE SEU NOME</p>
-        <input type="text" class="loginInput" placeholder="NOME">
-        <button class="loginButton">LOGlN</button>
+        <input type="text" class="loginInput" placeholder="NOME" onclick="playAudio()">
+        <button class="loginButton">LOGlN ⮞</button>
     </div>
     <button class="loginButton" id="professorLogin">Login Professor</button>
+
+    <script>
+        function playAudio() {
+            var audio = document.getElementById("myAudio");
+            audio.play();
+        }
+    </script>
 </body>
 </html>
