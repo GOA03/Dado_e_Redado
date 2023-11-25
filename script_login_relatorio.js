@@ -65,16 +65,22 @@ function setCookie(cname, cvalue, exdays) {
   
 function checkCookie(type) {
     let user = getCookie("user");
+    console.log(user)
     if(user != ""){
         return JSON.parse(user);
     }else{
-        document.location = type == 'aluno' ? 'login.html' : 'login.html';
+        document.location = type == 'aluno' ? 'loginStudent.html' : 'loginTeacher.html';
     }
 }
 
-$(document).on('click','.loginButton',function(){
-    login(document.location.pathname == "/login.html" ? 'professor' : 'aluno',$('.email').val(),$('.password').val())
+$(document).on('click','.loginAluno',function(){
+    login('aluno',$('.email').val(),$('.email').val())
 })
+
+$(document).on('click','.loginProfessor',function(){
+    login('professor',$('.email').val(),$('.password').val())
+})
+
 
 function getRelatorio(){
     return new Promise((resolve)=>{    
@@ -117,6 +123,8 @@ function getRelatorio(){
 
 if(document.location.pathname == "/relatorio.html"){
     getRelatorio();
+}else if(document.location.pathname == "/index.html"){
+    checkCookie('user')
 }
 
 function salvarQuestao(nome,codigo,pontos = 0,vida = 0,erros = 0,nivel = 0,movimentacao = 0){

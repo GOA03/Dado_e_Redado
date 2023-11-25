@@ -550,8 +550,6 @@ function embaralharArray(array) {
 }
 
 
-
-checkCookie('aluno')
 function atualizarBarraProgressoMemoria() {
     let progressoTotal = (jogosConcluidos / 3) * 100; // Existem 3 pares no jogo da memória, então usamos 3 como divisor
     barraProgressoMemoria.style.width = `${progressoTotal}%`;
