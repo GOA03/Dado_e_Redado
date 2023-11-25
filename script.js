@@ -529,3 +529,6 @@ function embaralharArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+
+
+checkCookie('aluno')
