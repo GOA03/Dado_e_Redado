@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mensagemGameOver = document.getElementById('mensagemGameOver');
     const jogoMemoria = document.getElementById('jogoMemoria');
     const memoriaGrid = document.getElementById('memoriaGrid');
+    const barraProgressoMemoria = document.getElementById('barraProgressoMemoria');
     const cards = ['A', 'A', 'B', 'B', 'C', 'C']; // Um conjunto simples de cartas para o jogo da memória
 
 
@@ -305,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 resultado = valorDado1;
             } while (resultadosAnterioresSet.has(resultado));
     
-            perguntaElement.innerText = `Qual é o valor do dado?`;
+            perguntaElement.innerText = `QUAL É O VALOR DO DADO?`;
             mostrarImagensDados([valorDado1]);
             mostrarOpcoes(resultado, dificuldadeSelecionada);
     
@@ -367,11 +368,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (acerto) {
             feedback.classList.add('acerto');
             feedback.classList.remove('erro');
-            feedback.innerText = 'Acerto!';
+            feedback.innerText = '🎉 Acertou! 🎉';
         } else {
             feedback.classList.add('erro');
             feedback.classList.remove('acerto');
-            feedback.innerText = 'Erro!';
+            feedback.innerText = 'Errou!';
         }
         setTimeout(() => {
             feedback.style.display = 'none';
@@ -452,7 +453,14 @@ function iniciarJogoMemoria() {
         carta.addEventListener('click', virarCarta);
         memoriaCartas.appendChild(carta);
     });
+
+    // Inicializar a barra de progresso e o texto de progresso para o jogo da memória
+    const barraProgressoMemoria = document.getElementById('barraProgressoMemoria');
+    barraProgressoMemoria.style.width = '0%'; 
+    const progressoTextoMemoria = document.getElementById('progressoTextoMemoria');
+    progressoTextoMemoria.innerText = "0/3";
 }
+
 
 function virarCarta() {
     if (cartasViradas.length < 2 && !this.classList.contains('virada')) {
@@ -498,6 +506,12 @@ function verificarCartas() {
         cartasViradas[0].removeEventListener('click', virarCarta);
         cartasViradas[1].removeEventListener('click', virarCarta);
         jogosConcluidos++;
+
+        // Atualização da barra de progresso e do texto de progresso para o jogo da memória
+        const barraProgressoMemoria = document.getElementById('barraProgressoMemoria');
+        barraProgressoMemoria.style.width = `${(jogosConcluidos / 3) * 100}%`; 
+        const progressoTextoMemoria = document.getElementById('progressoTextoMemoria');
+        progressoTextoMemoria.innerText = `${jogosConcluidos}/3`;
     } else {
         cartasViradas[0].classList.remove('virada');
         cartasViradas[1].classList.remove('virada');
@@ -518,10 +532,15 @@ function verificarCartas() {
     }
     cartasViradas = [];
 
+    // Atualizar a barra de progresso e o texto de progresso para o jogo da memória
+    const progressoTextoMemoria = document.getElementById('progressoTextoMemoria');
+    progressoTextoMemoria.innerText = `${jogosConcluidos}/3`;
+
     if (jogosConcluidos === 3) {
         mostrarFimJogoMemoria();
     }
 }
+
 
 function embaralharArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -531,4 +550,9 @@ function embaralharArray(array) {
 }
 
 
+
 checkCookie('aluno')
+function atualizarBarraProgressoMemoria() {
+    let progressoTotal = (jogosConcluidos / 3) * 100; // Existem 3 pares no jogo da memória, então usamos 3 como divisor
+    barraProgressoMemoria.style.width = `${progressoTotal}%`;
+}

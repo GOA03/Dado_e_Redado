@@ -7,9 +7,9 @@
     --secondary-text-color: #FFFFFF;
     --action-positive: #4caf50;
     --action-negative: #f44336;
-    --highlight-info: #FFD166;
-    --primary-font: 'Lato', sans-serif;
-    --secondary-font: 'Montserrat', sans-serif;
+    --highlight-info: #3289e1;
+    --primary-font: 'Advent Pro', sans-serif;
+    --secondary-font: 'Poppins', sans-serif;
     --box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
     --primary-border-radius: 10px;
     --primary-font-size: 1rem;
@@ -40,51 +40,84 @@ body {
     max-width: 400px;
     margin: auto;
     text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+p{
+    font-size: 23px;
+    margin: -10px 0px 5px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35);
+    font-weight: 600;
 }
 
 #loginContainer h2 {
-    font-family: var(--secondary-font);
+    font-family: var(--primary-font);
     text-align: center;
-    margin-bottom: 20px;
+    margin: 0px 0px -10px;
     color: var(--secondary-text-color);
+    font-weight: 700;
+    font-size: 80px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+#loginContainer h3 {
+    margin: 0px 0px 30px;
+    font-size: 29px;
+    color: #000000;
 }
 
 #loginContainer img {
     width: 100px;
     height: 100px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .loginInput {
     width: 100%;
+    max-width: 380px;
     padding: 10px;
     margin-bottom: 10px;
     border: none;
     border-radius: var(--primary-border-radius);
     background-color: var(--primary-bg-color);
     color: var(--primary-text-color);
-    font-size: var(--primary-font-size);
+    font-size: 15px;
     outline: none;
 }
 
 .loginButton {
     padding: var(--large-padding);
     font-size: 18px;
+    font-weight: 600;
     background-color: var(--secondary-bg-color);
-    color: var(--primary-text-color);
+    color: #000000;
     border: 2px solid var(--highlight-info);
     border-radius: var(--primary-border-radius);
     cursor: pointer;
     transition: all 0.3s;
+    margin: 20px 0px 0px;
 }
 
 .loginButton:hover {
     background-color: var(--highlight-info);
-    color: var(--secondary-text-color);
+    font-weight: 700;
+    color: var(--primary-text-color);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .loginButton:active {
     transform: scale(0.95);
+}
+
+#professorLogin {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 14px;
+}
+
+#voltar{
+    font-size: 40px;
 }
 
 #loginContainer input[type="text"]:not(:placeholder-shown),

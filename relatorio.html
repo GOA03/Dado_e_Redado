@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório dos Resultados dos Alunos</title>
-    <link rel="stylesheet" href="stylesLogin.css">
+    <title>Relatórios</title>
     <link rel="stylesheet" href="stylesRelatorio.css">
     <script
     src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -13,11 +12,10 @@
   <script src="script_login_relatorio.js"></script>
 </head>
 <body>
-    <div id="reportContainer">
+    <div id="reportContainer" class="container">
         <h1>Relatório dos Resultados dos Alunos</h1>
-        
-        <h2>Lista de Resultados:</h2>
-        <table>
+
+        <table class="striped">
             <thead>
                 <tr>
                     <th>Nome do Aluno</th>
@@ -33,7 +31,7 @@
 
         <!-- Botões para outras funções que o professor pode precisar -->
         <div id="reportActions">
-            <button class="report-button back-button">Voltar ao Painel</button>
+            <a href="#" class="button back-button">Voltar ao Painel</a>
         </div>
     </div>
 
